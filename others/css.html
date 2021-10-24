@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>样式隔离</title>
+  <style>
+    p{
+      /* 影子dom下的p字体样式并未变绿 */
+      color: green;     
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <p>尝试一下shadowDOM样式隔离</p>
+    <div id="shadow"></div>
+  </div>
+  <script>
+    // 表示shadow dom不允许外界访问，如果允许外界访问，则mode属性值为open
+    //qiankun用了这个
+    let shadowDOM = shadow.attachShadow({mode: 'closed'}) 
+    let pElm = document.createElement('p');
+    pElm.innerHTML = 'shadowDom Content';
+    shadowDOM.appendChild(pElm);
+  </script>
+</body>
+</html>
