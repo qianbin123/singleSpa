@@ -19,7 +19,7 @@ const routes = [
 
 const router = new VueRouter({
   mode: 'history',
-  base: '/vue',                // here 指子应用在启动时，路由以/vue为基准去加载10000端口
+  base: '/vue',                // 指子应用在启动时，路由以/vue为基准去加载10000端口
   routes
 })
 

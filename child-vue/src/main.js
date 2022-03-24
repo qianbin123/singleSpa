@@ -2,11 +2,27 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
 import singleSpaVue from 'single-spa-vue';
+import Vuex from 'vuex'
 
-Vue.config.productionTip = false
+Vue.use(Vuex)
+
+const store = new Vuex.Store({
+  state: {
+    count: 0
+  },
+  mutations: {
+    increment (state) {
+      state.count++
+    }
+  }
+})
+
+Vue.config.productionTip = false;
+
 
 const appOptions = {
   el: '#vue',             // 挂在父应用中的id为vue的标签中
+  store,
   router,
   render: h => h(App)
 }
@@ -34,7 +50,6 @@ export const mount = vueLifeCycle.mount;
 export const unmount = vueLifeCycle.unmount;
 
 // 我们需要父应用加载子应用，将子应用打包成一个个的lib去给父应用使用
-
 
 // new Vue({
 //   router,

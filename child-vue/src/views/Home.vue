@@ -2,6 +2,8 @@
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div @click="increment">1234</div>
+    <div>{{this.$store.state.count}}</div>
   </div>
 </template>
 
@@ -13,6 +15,16 @@ export default {
   name: 'Home',
   components: {
     HelloWorld
+  },
+  data(){
+    return {
+
+    }
+  },
+  methods:{
+    increment(){
+      this.$store.commit('increment')
+    }
   }
 }
 </script>

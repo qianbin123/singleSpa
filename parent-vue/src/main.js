@@ -14,7 +14,8 @@ async function loadScript(url){
   })
 }
 
-registerApplication('myVueApp', // 子应用名字随便取
+registerApplication(
+  'myVueApp', // 子应用名字随便取
   async () => {                 // 第二个参数必须为Promise函数
     console.log('加载子模块');
     // systemJs：在浏览器中用ES6模块
